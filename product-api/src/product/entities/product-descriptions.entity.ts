@@ -10,7 +10,7 @@ import { Languages } from './language.entity'
 import { Products } from './product.entity'
 
 @Entity({ name: 'product_descriptions' })
-export class ProductNames {
+export class ProductDescriptions {
   @Index()
   @PrimaryGeneratedColumn()
   id: number
@@ -32,5 +32,5 @@ export class ProductNames {
   product
 
   @Column()
-  name: string
+  description: string
 }
