@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.9'
 services:
   api:
     build:
@@ -15,21 +15,26 @@ services:
       - hlab
 
   database:
-    build: .
+    image: postgres:16-alpine
     # restart: always
     ports:
       - 5432:5432
     volumes:
       - ./data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=Qwerty1234!
-      - POSTGRES_DB=gamiqo
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=product
+    # extra_hosts:
+    #   - 'host.docker.internal:host-gateway'
     networks:
       - hlab
 
+volumes:
+  cache:
+    driver: local
+  db:
+    driver: local
 networks:
   hlab:
     name: hlab

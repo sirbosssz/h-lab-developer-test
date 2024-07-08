@@ -86,3 +86,7 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# product-api
+product-api/data
+product-api/dist
